@@ -40,6 +40,7 @@ export const useCreateWorkspace = () => {
       try {
         setData(null);
         setError(null);
+        setStatus("pending");
         // setIsError(false);
         // setIsSettled(false);
         // setIsPending(true);
