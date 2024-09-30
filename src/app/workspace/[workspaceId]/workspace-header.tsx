@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { PreferencesModal } from "./preferences-modal";
+import { InviteModal } from "./invite-modal";
 
 interface WorkspaceHeaderProps {
   workspace: Doc<"workspaces">;
@@ -23,8 +24,15 @@ export const WorkspaceHeader = ({
   isAdmin,
 }: WorkspaceHeaderProps) => {
   const [preferencesOpen, setPreferencesOpen] = useState(false);
+  const [inviteOpen, setInviteOpen] = useState(false);
   return (
     <>
+      <InviteModal
+        open={inviteOpen}
+        setOpen={setInviteOpen}
+        name={workspace.name}
+        joinCode={workspace.joinCode}
+      />
       <PreferencesModal
         open={preferencesOpen}
         setOpen={setPreferencesOpen}
@@ -39,11 +47,11 @@ export const WorkspaceHeader = ({
               size="sm"
             >
               <span className="truncate">{workspace.name}</span>
-              <ChevronDown className="size-4 ml-1 shrink-0" />
+              <ChevronDown className="ml-1 size-4 shrink-0" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent side="bottom" align="start" className="w-64">
-            <DropdownMenuItem className="cursor-pointer capitalize">
+            <DropdownMenuItem className="capitalize cursor-pointer">
               <div className="size-9 relative overflow-hidden bg-[#616061] text-white font-semibold text-xl rounded-md flex items-center justify-center mr-2">
                 {workspace.name.charAt(0).toUpperCase()}
               </div>
@@ -58,14 +66,14 @@ export const WorkspaceHeader = ({
               <>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  className="cursor-pointer py-2"
-                  onClick={() => {}}
+                  className="py-2 cursor-pointer"
+                  onClick={() => setInviteOpen(true)}
                 >
                   Invite people to {workspace.name}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  className="cursor-pointer py-2"
+                  className="py-2 cursor-pointer"
                   onClick={() => setPreferencesOpen(true)}
                 >
                   Preferences
