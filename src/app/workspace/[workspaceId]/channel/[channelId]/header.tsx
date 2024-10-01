@@ -135,7 +135,7 @@ export const Header = ({ title }: HeaderProps) => {
                     required
                     autoFocus
                     minLength={3}
-                    maxLength={5}
+                    maxLength={80}
                     placeholder="e.g plan-budget"
                   />
                   <DialogFooter>
