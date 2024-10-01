@@ -22,9 +22,9 @@ export const Hint = ({ label, children, side, align }: HintProps) => {
         <TooltipContent
           side={side}
           align={align}
-          className="bg-black text-white border border-white/5"
+          className="text-white bg-black border border-white/5"
         >
-          <p className=" font-medium text-xs">{label}</p>
+          <p className="text-xs font-semibold ">{label}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
