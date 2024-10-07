@@ -7,7 +7,6 @@ import { api } from "../../../../convex/_generated/api";
 type ResponseType = string | null;
 
 type Options = {
-  //TODO: Check onSuccess correct type
   onSuccess?: (data: ResponseType) => void;
   onError?: (error: Error) => void;
   onSettled?: () => void;

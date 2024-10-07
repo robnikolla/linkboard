@@ -9,7 +9,6 @@ type RequestType = { name: string; id: Id<"channels"> };
 type ResponseType = Id<"channels"> | null;
 
 type Options = {
-  //TODO: Check onSuccess correct type
   onSuccess?: (data: ResponseType) => void;
   onError?: (error: Error) => void;
   onSettled?: () => void;

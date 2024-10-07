@@ -11,6 +11,7 @@ type RequestType = {
   image?: Id<"_storage">;
   channelId?: Id<"channels">;
   parentMessageId?: Id<"messages">;
+  conversatioId?: Id<"conversations">;
 };
 type ResponseType = Id<"messages"> | null;
 
@@ -32,11 +33,6 @@ export const useCreateMessage = () => {
   const isSuccess = useMemo(() => status === "success", [status]);
   const isError = useMemo(() => status === "error", [status]);
   const isSettled = useMemo(() => status === "settled", [status]);
-
-  // const [isPending, setIsPending] = useState(false);
-  // const [isSuccess, setIsSuccess] = useState(false);
-  // const [isError, setIsError] = useState(false);
-  // const [isSettled, setIsSettled] = useState(false);
 
   const mutation = useMutation(api.messages.create);
 
