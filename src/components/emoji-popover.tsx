@@ -46,7 +46,7 @@ export const EmojiPopover = ({
           delayDuration={50}
         >
           <PopoverTrigger asChild>
-            <TooltipTrigger>{children}</TooltipTrigger>
+            <TooltipTrigger asChild>{children}</TooltipTrigger>
           </PopoverTrigger>
           <TooltipContent className="bg-black text-white border border-white/5">
             <p className="font-medium text-xs">{hint}</p>
