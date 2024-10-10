@@ -241,6 +241,15 @@ export const Message = ({
               {updatedAt ? (
                 <span className="text-xs text-muted-foreground">(edited)</span>
               ) : null}
+              {threadCount !== undefined && threadCount > 0 && (
+                <button
+                  onClick={() => onOpenMessage(id)}
+                  className="flex flex-start border-l-2  border-slate-300 pl-2 text-xs mt-1 font-semibold"
+                >
+                  {`${threadCount} ${threadCount > 1 ? "replies" : "reply"}`}
+                </button>
+              )}
+
               <Reactions data={reactions} onChange={handleReaction} />
             </div>
           )}
